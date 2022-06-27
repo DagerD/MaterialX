@@ -146,14 +146,14 @@ string(REGEX REPLACE "\\\\" "/" PYTHON_SITE_PACKAGES ${PYTHON_SITE_PACKAGES})
 
 if(CMAKE_HOST_WIN32 AND NOT (MSYS OR MINGW))
     set(PYTHON_LIBRARY
-        "${PYTHON_PREFIX}/libs/Python${PYTHON_LIBRARY_SUFFIX}.lib")
+        "C:/GPUOpen/Blender/lib/win64_vc15/python/310/libs/python310_d.lib")
 
     # when run in a venv, PYTHON_PREFIX points to it. But the libraries remain in the
     # original python installation. They may be found relative to PYTHON_INCLUDE_DIR.
     if(NOT EXISTS "${PYTHON_LIBRARY}")
         get_filename_component(_PYTHON_ROOT ${PYTHON_INCLUDE_DIR} DIRECTORY)
         set(PYTHON_LIBRARY
-            "${_PYTHON_ROOT}/libs/Python${PYTHON_LIBRARY_SUFFIX}.lib")
+            "C:/GPUOpen/Blender/lib/win64_vc15/python/310/libs/python310_d.lib")
     endif()
 
     # raise an error if the python libs are still not found.
